@@ -1,3 +1,7 @@
+<?php 
+session_start()
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +37,8 @@ if (isset($_POST['login'])) {
         echo "username is missing";
       }
       else {
-        echo "hello $username";
+        header("Location: home.php");
+        // echo "hello $username";
       }
     }
 ?>

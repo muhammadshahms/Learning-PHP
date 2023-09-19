@@ -31,9 +31,10 @@ elseif($percentage >= 50){
 else{
     echo "$percentage fail";
 }
+// ternary operator
 
-
-
+$marks=40;
+print ($marks>=40) ? "pass" : "Fail";
 
 // $google = array("car"=>"bmw","aeroplane"=>"airbus",34);
 // print(strlen($google["aeroplane"])); 
