@@ -7,12 +7,12 @@
 </head>
 <body>
     <form action="radioButton.php" method="post">
-        visa
-        <input type="radio" name="creditcard" value="visa">
-        mastercard
-        <input type="radio" name="creditcard" value="mastercard">
-        AmericanExpress
-        <input type="radio" name="creditcard" value="amexxxxxxx">
+    <input type="radio" name="creditcard" value="visa">
+        <label for="visa">visa</label>
+        <input type="radio" name="creditcard" value="mastercard">   
+        <label for="visa">mastercard</label>
+        <input type="radio" name="creditcard" value="AmericanExpress">
+        <label for="AmericanExpress">AmericanExpress</label>
     <br>
         <input type="submit" name="submit" value="submit">
     </form>
@@ -35,5 +35,7 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+
+
 
 </html>
