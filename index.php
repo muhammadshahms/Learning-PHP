@@ -36,8 +36,6 @@ if (isset($_POST['login'])) {
          echo "hello $username";
        }
     }
-
-
 ?>
 
 </html>
