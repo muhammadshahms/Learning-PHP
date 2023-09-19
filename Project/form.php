@@ -12,7 +12,7 @@ session_start()
 </head>
 
 <body>
-    <form action="index.php" method="post">
+    <form method="post">
         <label for="username">username</label>
         <input type="text" name="username" id="username">
         <label for="email">email</label>
