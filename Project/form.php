@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start()
 ?>
 
@@ -6,29 +6,39 @@ session_start()
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 
 <body>
-    <form method="post">
-        <label for="username">username</label>
-        <input type="text" name="username" id="username">
-        <label for="email">email</label>
-        <input type="text" name="email" id="username">
-        <label for="password">password</label>
-        <input type="text" name="password" id="username">
-        <button type="submit" name="login">submit</button>
-    </form>
+  <form method="post">
+    <label for="username">username</label>
+    <input type="text" name="username" id="username">
+    <label for="email">email</label>
+    <input type="text" name="email" id="username">
+    <label for="password">password</label>
+    <input type="text" name="password" id="username">
+    <button type="submit" name="login">submit</button>
+  </form>
 </body>
 <?php
-// $_POST Super global variable
+
+// print_r($_POST);
+// // $_POST Super global variable
 
 // foreach ($_POST as $key => $value) {
 //     echo $key . " : " . $value . "<br>";
 // }
 
+
+// $username = $_POST["username"];
+// $password  = $_POST["password"];
+// if (isset($_POST["login"])) {
+//   echo "not filled";
+// }else{
+//   echo $username . " " . $password;
+// }
 if (isset($_POST['login'])) {
       $username = $_POST["username"];
       $password = $_POST["password"];
