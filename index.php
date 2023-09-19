@@ -26,15 +26,15 @@
 // }
 
 if (isset($_POST['login'])) {
-       $username = $_POST["username"];
-       $password = $_POST["password"];
+      $username = $_POST["username"];
+      $password = $_POST["password"];
 
-       if (empty($username)) {
-         echo "username is missing";
-       }
-       else {
-         echo "hello $username";
-       }
+      if (empty($username)) {
+        echo "username is missing";
+      }
+      else {
+        echo "hello $username";
+      }
     }
 ?>
 
