@@ -1,5 +1,5 @@
 <?php
-session_start()
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,15 +21,18 @@ session_start()
 </body>
 <?php
 if (isset($_POST['login'])) {
-      $username = $_POST["username"];
-      $password = $_POST["password"];
-
+  $username = $_POST["username"];
+  $email = $_POST["email"];
+  $password = $_POST["password"];
       if (empty($username)) {
         echo "username is missing";
       }
       else {
-        // header("Location: home.php");
-        echo "hello $username";
+        $_SESSION["username"] = $username;
+        $_SESSION["email"] = $email;
+        header("Location: home.php");
+
+        // echo "hello $username";
       }
     }
 ?>
