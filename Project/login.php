@@ -15,8 +15,6 @@ session_start()
   <form method="post">
     <label for="username">username</label>
     <input type="text" name="username" id="username">
-    <label for="email">email</label>
-    <input type="text" name="email" id="username">
     <label for="password">password</label>
     <input type="text" name="password" id="username">
     <button type="submit" name="login">submit</button>
@@ -47,6 +45,7 @@ if (isset($_POST['login'])) {
         echo "username is missing";
       }
       else {
+        $_SESSION['username'] = $username;
         header("Location: home.php");
         // echo "hello $username";
       }
