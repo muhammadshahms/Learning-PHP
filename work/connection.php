@@ -1,10 +1,24 @@
 <?php
 
-$domain="localhost";
-$dbusername="root";
-$dbpassword="";
-$dbname="ecom_store";
+$domain = "localhost";
+$dbusername = "root";
+$dbpassword = "";
+$dbname = "ecom_store";
 
-$con = mysqli_connect($domain,$dbusername,$dbpassword,$dbname) or die("Connection failed: " . mysqli_connect_error());
+try {
+    // Create a database connection
+    $con = mysqli_connect($domain, $dbusername, $dbpassword, $dbname);
+
+    // Check if the connection was successful
+    if (!$con) {
+        throw new Exception("Connection failed: " . mysqli_connect_error());
+    }
+
+    // Your database operations go here
+
+} catch (Exception $e) {
+    // Handle the exception
+    echo "Database Error: " . $e->getMessage();
+}
 
 ?>

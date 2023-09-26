@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'template/header.php';
 ?>
     <form method="post">
@@ -23,7 +24,6 @@ include 'template/header.php';
 <?php
 include 'template/footer.php';
 ?>
-
 
 <?php
 include 'connection.php';
