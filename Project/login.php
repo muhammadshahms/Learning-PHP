@@ -26,12 +26,7 @@ if (isset($_POST['login'])) {
         echo "username is missing";
       }
       else {
-<<<<<<< HEAD:Project/login.php
         $_SESSION['username'] = $username;
-=======
-        $_SESSION["username"] = $username;
-        $_SESSION["email"] = $email;
->>>>>>> 7daab18a58e6c7db9fce0fd6c23721561d0b0c0f:Project/form.php
         header("Location: home.php");
 
         // echo "hello $username";
