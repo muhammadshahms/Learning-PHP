@@ -1,8 +1,10 @@
 <?php
+error_reporting(E_ALL);  // Report all types of errors
+ini_set('display_errors', 1);  // Display errors on the web page
 include 'connection.php';
 session_start();
-
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -19,18 +21,18 @@ session_start();
 <body>
 
     <main>
-        <form method="post">
+        <form method="POST">
             <div class="mb-3">
                 <label for="" class="form-label">Email</label>
-                <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="abc@mail.com">
+                <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" placeholder="abc@mail.com">
                 <small id="emailHelpId" class="form-text text-muted"></small>
             </div>
 
             <div class="mb-3">
                 <label for="" class="form-label">Password</label>
-                <input type="password" class="form-control" name="" id="" placeholder="">
+                <input type="password" class="form-control" name="password" id="" placeholder="">
             </div>
-            <button type="submit" class="btn btn-dark">Submit</button>
+            <button type="submit" class="btn btn-dark" name="submit">Submit</button>
         </form>
     </main>
 
@@ -44,21 +46,30 @@ session_start();
 </html>
 <?php
 if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $login_query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
-    $login_result = mysqli_query($conn, $login_query);
 
-    if ($login_result && mysqli_num_rows($login_result) > 0) {
-        $row = mysqli_fetch_assoc($login_result);
-        $_SESSION['id'] = $row['id'];
-        $_SESSION['name'] = $row['name'];
-        $_SESSION['email'] = $row['email'];
-        header("Location: table.php");
+    $login_query = "SELECT * FROM users WHERE email = '" . $_POST['email'] . "' AND password = '" . md5($_POST['password']) . "'";
+    $login_result = mysqli_query($con, $login_query);
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+    
+    if ($login_result) {
+        if (mysqli_num_rows($login_result) > 0) {
+            $row = mysqli_fetch_array($login_result);
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['name'] = $row['name'];
+            $_SESSION['email'] = $row['email'];
+            echo "<script>alert('Login Successful');</script>";
+            // Redirect to the home page or another location
+            // echo "<script>window.location.href='home.php'</script>";
+        } else {
+            echo "<script>alert('Login Failed. User not found');</script>";
+            echo "Email: " . $email . "<br>";
+    echo "Hashed Password: " . md5($password) . "<br>"; 
+
+        }
     } else {
-        echo "<script>alert('Login Failed');</script>";
+        echo "<script>alert('Query failed: " . mysqli_error($con) . "');</script>";
     }
 }
-
 
 ?>

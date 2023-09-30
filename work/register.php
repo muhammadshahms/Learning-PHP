@@ -45,7 +45,6 @@ if (isset($_POST['submit'])) {
         }
     } else {
         // Hash the password securely before storing it in the database
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         // Check if the email already exists in the database
         $checkQuery = "SELECT email FROM users WHERE email = '".$_POST['email']."'";
@@ -56,12 +55,12 @@ if (isset($_POST['submit'])) {
             echo "<script>alert('Email already exists. Please use a different email.');</script>";
         } else {
             // Email doesn't exist, proceed with the insertion
-            $query = "INSERT INTO users (name, email, password) VALUES ("."'$_POST[name]'".","."'$_POST[email]'".","."'$hashedPassword'".")";
+            $query = "INSERT INTO users (name, email, password) VALUES ('".$_POST['name']."', '".$_POST['email']."', '".md5($_POST['password'])."')";
             $exec =  mysqli_query($con, $query);
 
             if ($exec) {
-                echo "<script>alert('Data Inserted Successfully');</script>";
-                echo "<script>window.location.href='table.php'</script>";
+                echo "<script>alert('User Registered Successfully');</script>";
+                echo "<script>window.location.href='login.php'</script>";
             } else {
                 echo "<script>alert('Data Not Inserted');</script>";
             }
