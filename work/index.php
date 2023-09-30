@@ -31,7 +31,7 @@ include 'connection.php';
 if (isset($_POST['submit'])) {
     $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
-    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
 
     if (empty($name) || empty($email) || empty($password)) {
         if (empty($name)) {
@@ -60,8 +60,8 @@ if (isset($_POST['submit'])) {
             $exec =  mysqli_query($con, $query);
 
             if ($exec) {
-                echo "<script>alert('Data Inserted');</script>";
-                header("Location: table.php");
+                echo "<script>alert('Data Inserted Successfully');</script>";
+                echo "<script>window.location.href='table.php'</script>";
             } else {
                 echo "<script>alert('Data Not Inserted');</script>";
             }

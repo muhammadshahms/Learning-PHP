@@ -1,5 +1,8 @@
 <?php 
 include './connection.php';
 $delete = mysqli_query($con, "DELETE FROM users WHERE id=" . $_GET['id']);
-header("Location: table.php");
+if($delete){
+    echo "<script>alert('Data Deleted')</script>";
+    echo "<script>window.location.href='table.php'</script>";
+}
 ?>
