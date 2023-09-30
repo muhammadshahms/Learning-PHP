@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);  // Report all types of errors
-ini_set('display_errors', 1);  // Display errors on the web page
 include 'connection.php';
 session_start();
 ?>
@@ -46,15 +44,12 @@ session_start();
 </html>
 <?php
 if (isset($_POST['submit'])) {
-
     $login_query = "SELECT * FROM users WHERE email = '" . $_POST['email'] . "' AND password = '" . md5($_POST['password']) . "'";
     $login_result = mysqli_query($con, $login_query);
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
-    
-    if ($login_result) {
-        if (mysqli_num_rows($login_result) > 0) {
-            $row = mysqli_fetch_array($login_result);
+    if ($login_query && mysqli_num_rows($login_result) > 0) {
+        if ($row = mysqli_fetch_array($login_result)) {
             $_SESSION['id'] = $row['id'];
             $_SESSION['name'] = $row['name'];
             $_SESSION['email'] = $row['email'];
@@ -64,12 +59,10 @@ if (isset($_POST['submit'])) {
         } else {
             echo "<script>alert('Login Failed. User not found');</script>";
             echo "Email: " . $email . "<br>";
-    echo "Hashed Password: " . md5($password) . "<br>"; 
-
+            echo "Hashed Password: " . md5($password) . "<br>";
         }
     } else {
         echo "<script>alert('Query failed: " . mysqli_error($con) . "');</script>";
     }
 }
-
 ?>
