@@ -46,23 +46,20 @@ session_start();
 if (isset($_POST['submit'])) {
     $login_query = "SELECT * FROM users WHERE email = '" . $_POST['email'] . "' AND password = '" . md5($_POST['password']) . "'";
     $login_result = mysqli_query($con, $login_query);
-    $email = trim($_POST['email']);
-    $password = trim($_POST['password']);
     if ($login_query && mysqli_num_rows($login_result) > 0) {
         if ($row = mysqli_fetch_array($login_result)) {
             $_SESSION['id'] = $row['id'];
             $_SESSION['name'] = $row['name'];
             $_SESSION['email'] = $row['email'];
-            echo "<script>alert('Login Successful');</script>";
-            // Redirect to the home page or another location
-            // echo "<script>window.location.href='home.php'</script>";
+            print_r($_SESSION);
+            // echo "<script>alert('Login Successful');</script>";
+            // // Redirect to the home page or another location
+            // echo "<script>window.location.assign('home.php')</script>";
         } else {
             echo "<script>alert('Login Failed. User not found');</script>";
             echo "Email: " . $email . "<br>";
             echo "Hashed Password: " . md5($password) . "<br>";
         }
-    } else {
-        echo "<script>alert('Query failed: " . mysqli_error($con) . "');</script>";
     }
 }
 ?>
