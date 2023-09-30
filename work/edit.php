@@ -3,7 +3,6 @@ include './template/header.php';
 include 'connection.php';
 $editUser = mysqli_query($con, "SELECT * FROM users");
 if (mysqli_num_rows($editUser) == 0) {
-    echo "<script>alert('No user found.');</script>";
     echo "<script>window.location.href='table.php'</script>";
 } else {
 ?>
