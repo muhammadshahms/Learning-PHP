@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION["id"])) {
+    header("location:login.php");
+}
+else{   
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,9 +35,13 @@
                 <a href="edit_user.php?id=<?php echo $users["id"] ?>">edit</a>
             </td>
         </tr>
+
         <?php
             }
         ?>
+        <a href="logout.php">logout</a>
     </table>
 </body>
 </html>
+
+<?php } ?>

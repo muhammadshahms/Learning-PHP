@@ -32,7 +32,7 @@ if (isset($_POST["btn_saved"])) {
         $_SESSION["name"] = $q["name"];
         
         echo "<script>alert('user found')</script>";
-        echo "<script>window.location.assign('index.php')</script>";
+        echo "<script>window.location.assign('users.php')</script>";
         }
     }
 }
