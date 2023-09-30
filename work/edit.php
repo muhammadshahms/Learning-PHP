@@ -1,13 +1,14 @@
 <?php
 include './template/header.php';
-include 'connection.php';
-$editUser = mysqli_query($con, "SELECT * FROM users");
-if (mysqli_num_rows($editUser) == 0) {
+
+if (!isset($_GET['id'])) {
     echo "<script>window.location.href='table.php'</script>";
-} else {
+}
 ?>
     <main>
         <?php
+        include 'connection.php';
+
         if (isset($_POST['submit'])) {
             $name = $_POST['name'];
             $email = $_POST['email'];
@@ -50,9 +51,6 @@ if (mysqli_num_rows($editUser) == 0) {
         }
         ?>
     </main>
-<?php
-}
-?>
 
 <?php
 include './template/footer.php';
