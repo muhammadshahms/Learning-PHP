@@ -1,16 +1,13 @@
 <?php
-session_start()
+session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-
 <body>
   <form method="post">
     <label for="username">username</label>
@@ -21,35 +18,24 @@ session_start()
   </form>
 </body>
 <?php
-
-// print_r($_POST);
-// // $_POST Super global variable
-
-// foreach ($_POST as $key => $value) {
-//     echo $key . " : " . $value . "<br>";
-// }
-
-
-// $username = $_POST["username"];
-// $password  = $_POST["password"];
-// if (isset($_POST["login"])) {
-//   echo "not filled";
-// }else{
-//   echo $username . " " . $password;
-// }
 if (isset($_POST['login'])) {
-      $username = $_POST["username"];
-      $password = $_POST["password"];
-
+  $username = $_POST["username"];
+  $email = $_POST["email"];
+  $password = $_POST["password"];
       if (empty($username)) {
         echo "username is missing";
       }
       else {
+<<<<<<< HEAD:Project/login.php
         $_SESSION['username'] = $username;
+=======
+        $_SESSION["username"] = $username;
+        $_SESSION["email"] = $email;
+>>>>>>> 7daab18a58e6c7db9fce0fd6c23721561d0b0c0f:Project/form.php
         header("Location: home.php");
+
         // echo "hello $username";
       }
     }
 ?>
-
 </html>

@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <form action="radioButton.php" method="post">
-    <input type="radio" name="creditcard" value="visa">
+        <input type="radio" name="creditcard" value="visa">
         <label for="visa">visa</label>
-        <input type="radio" name="creditcard" value="mastercard">   
+        <input type="radio" name="creditcard" value="mastercard">
         <label for="visa">mastercard</label>
         <input type="radio" name="creditcard" value="AmericanExpress">
         <label for="AmericanExpress">AmericanExpress</label>
-    <br>
+        <br>
         <input type="submit" name="submit" value="submit">
     </form>
 </body>
@@ -35,7 +37,5 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-
-
 
 </html>

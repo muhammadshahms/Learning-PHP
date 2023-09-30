@@ -17,6 +17,7 @@ if (isset($_SESSION['username'])) {
     </form>
 </body>
 <?php
+<<<<<<< HEAD
 if (isset($_POST['logout'])) {
     session_destroy();
     header("Location: form.php");
@@ -27,4 +28,11 @@ if (isset($_POST['logout'])) {
 } else {
     header("Location: form.php");
 }
+=======
+session_start();
+$username=$_SESSION["username"];
+$email = $_SESSION["email"];
+echo $email;    
+
+>>>>>>> 7daab18a58e6c7db9fce0fd6c23721561d0b0c0f
 ?>
