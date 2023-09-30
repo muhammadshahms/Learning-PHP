@@ -18,7 +18,7 @@ session_start();
     <input type="password" name="password">
     <input type="submit" value="login" name="btn_saved">
 
-</form>
+</form> 
     
 </body>
 <?php 
