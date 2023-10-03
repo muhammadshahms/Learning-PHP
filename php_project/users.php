@@ -35,7 +35,6 @@ else{
                 <a href="edit_user.php?id=<?php echo $users["id"] ?>">edit</a>
             </td>
         </tr>
-
         <?php
             }
         ?>
