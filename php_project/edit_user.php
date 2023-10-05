@@ -12,7 +12,7 @@
     <h1>
         Form
     </h1>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <?php 
         require 'connection.php';
         $query1 = mysqli_query($connect,"SELECT * FROM `users` where id = ".$_GET["id"]."");
@@ -22,7 +22,8 @@
         <br>
         <input type="email" name="email" id="email" value="<?php echo $users["email"]; ?>">
         <br>
-       
+        <input type="file" name="file" id="file" value="<?php echo $users["image"]; ?>">
+
         <?php } ?>
         <button type="submit" name="btn_saved">Save</button>
     </form>
@@ -32,7 +33,7 @@
 <?php
 require 'connection.php';
 if (isset($_POST["btn_saved"])) {
-    $query = mysqli_query($connect, "UPDATE `users` SET `name` = '" . $_POST["name"] . "', `email` = '" . $_POST["email"] . "' WHERE id = " . $_GET["id"] . "");
+    $query = mysqli_query($connect, "UPDATE `users` SET `name` = '" . $_POST["name"] . "', `email` = '" . $_POST["email"] . "' , `image` = '" . $_POST["image"] . "', `updated_at` = '" . date("Y-m-d H:i:s") . "' WHERE id = " . $_GET["id"] . "");
     if ($query) {
         echo "<script>alert('user updated')</script>";
         echo "<script>window.location.assign('users.php')</script>";

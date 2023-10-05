@@ -19,7 +19,7 @@
         <br>
         <input type="password" name="password" id="password">
         <br>
-        <input type="file" name="file" id="file">
+        <input type="file" name="file" id="file" >
         <br>
         <button type="submit" name="btn_saved">Save</button>
     </form>
@@ -29,11 +29,19 @@
 <?php
 include('connection.php');
 if (isset($_POST["btn_saved"])) {
-    $query = mysqli_query($connect, "INSERT INTO `users`( `name`, `email`, `password`) VALUES ('" . $_POST["name"] . "','" . $_POST["email"] . "','" . md5($_POST["password"]) . "')");
+    $originalFilename = $_FILES["file"]["name"];
+        $extension = pathinfo($originalFilename, PATHINFO_EXTENSION); // Get the file extension
+        
+        // Generate a unique filename using the current date and time
+        $newFilename = date("YmdHis") . "." . $extension;
+    $query = mysqli_query($connect, "INSERT INTO `users`( `name`, `email`, `password`, `image`, `created_at`) VALUES ('" . $_POST["name"] . "','" . $_POST["email"] . "','" . md5($_POST["password"]) . "','" . $newFilename . "',now())");
     if ($query) {
-        // move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/" . $_FILES["file"]["name"]);
+        print_r($newFilename);
+        $destinationPath = "uploads/" . $newFilename;
+        move_uploaded_file($_FILES["file"]["tmp_name"], $destinationPath);
         echo "<script>alert('user saved')</script>";
-        header("location:login.php");
+        echo "<script>window.location.assign('users.php')</script>";
+        // header("location:login.php");
     } else {
         echo "<script>alert('user not saved')</script>";
     }
