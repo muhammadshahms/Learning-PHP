@@ -2,7 +2,6 @@
 include "connection.php";
 include "../template/header.php";
 ?> 
-
 <?php
 $query = "SELECT * FROM `users` where id = " . $_GET["id"] . "";
 $result = mysqli_query($con,$query);
@@ -10,7 +9,6 @@ while ($a = mysqli_fetch_array($result)) {
 ?>
   <form method="post">
     <div class="mb-3">
-
           <label for="" class="form-label">name</label>
           <input type="text" class="form-control" name="name" id="" aria-describedby="nameHelpId" placeholder="Enter your name" value="<?php echo $a["name"]?>">
           <small id="nameHelpId" class="form-text text-muted">Help text</small>
