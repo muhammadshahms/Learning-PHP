@@ -24,7 +24,7 @@ while ($a = mysqli_fetch_array($result)) {
 <?php 
 include "../template/footer.php";
 if(isset($_POST["submit"])) {
-    $update_user="UPDATE `users` SET `name` = '" . $_POST["name"] . "', `email` = '" . $_POST["email"] . "', `updated_at` = '" .date("Y-m-d H:i:s"). "' WHERE id = " . $_GET["id"] . "";
+    $update_user="UPDATE `users` SET `name` = '" . $_POST["name"] . "', `email` = '" . $_POST["email"] . "', `updated_at` = '" .date("Y-m-d H:i:s"). "', `created_at` = NULL WHERE id = " . $_GET["id"] . "";
     $query = mysqli_query($con, $update_user);
     if($query){
         echo "<script>alert('user updated')</script>";

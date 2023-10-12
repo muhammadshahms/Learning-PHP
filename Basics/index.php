@@ -37,10 +37,11 @@
 // $result= ($marks>=40) ? "pass" : "Fail";
 // print $result;
 
-$google = array("car","air"=>"aeroplane","boat");
-print($google["air"]); 
-// foreach($google as $k => $v){
-//     echo $k . " : " . $v ."<br>";
-// }
+$google = array("car"=>"civic","air"=>"aeroplane","boat"=>"titanic");
+print_r($google["boat"])
+// print($google["air"]); 
+// // foreach($google as $k => $v){
+// //     echo $k . " : " . $v ."<br>";
+// // }
 
 ?>
