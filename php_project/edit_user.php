@@ -33,7 +33,7 @@
 <?php
 require 'connection.php';
 if (isset($_POST["btn_saved"])) {
-    $query = mysqli_query($connect, "UPDATE `users` SET `name` = '" . $_POST["name"] . "', `email` = '" . $_POST["email"] . "' , `image` = '" . $_POST["image"] . "', `updated_at` = '" . date("Y-m-d H:i:s") . "' WHERE id = " . $_GET["id"] . "");
+    $query = mysqli_query($connect, "UPDATE `users` SET `name` = '" . $_POST["name"] . "', `email` = '" . $_POST["email"] . "' , `image` = '" . $_POST["image"] . "' WHERE id = " . $_GET["id"] . "");
     if ($query) {
         echo "<script>alert('user updated')</script>";
         echo "<script>window.location.assign('users.php')</script>";
