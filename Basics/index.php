@@ -38,10 +38,8 @@
 // print $result;
 
 $google = array("car"=>"civic","air"=>"aeroplane","boat"=>"titanic");
-print_r($google["boat"])
-// print($google["air"]); 
-// // foreach($google as $k => $v){
-// //     echo $k . " : " . $v ."<br>";
-// // }
-
+// print_r($google["boat"])
+foreach($google as $key => $value){
+    echo $key . $value . "<br>";
+}
 ?>
