@@ -33,9 +33,9 @@ else{
 }
 // ternary operator
 
-$marks=30;
-$result= ($marks>=40) ? "pass" : "Fail";
-print $result;
+// $marks=30;
+// $result= ($marks>=40) ? "pass" : "Fail";
+// print $result;
 
 $google = array("car"=>"civic","air"=>"aeroplane","boat"=>"titanic");
 // print_r($google["boat"])

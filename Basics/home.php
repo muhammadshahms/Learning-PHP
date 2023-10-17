@@ -17,14 +17,27 @@
 
 
 
-    $input1 =array('car');
-    // $input2 = 1237123571258;
-    // $input3 = 2313.4;
-    if (is_array($input1)) {
-        echo "array value ";
-    } else {
-        echo "not a array";
+    // $input1 =array('car');
+    // // $input2 = 1237123571258;
+    // // $input3 = 2313.4;
+    // if (is_array($input1)) {
+    //     echo "array value ";
+    // } else {
+    //     echo "not a array";
+    // }
+
+
+
+    // $marks = 50;
+    // $result = ($marks >= 40) ? "pass" : "Fail";
+    // print $result;
+
+    $google = array("car" => "suzuki", "model" => "v8", "toyota" => "hhfg");
+    foreach ($google as $k => $v) {
+        echo "<br>" . $v;
     }
+
+
 
     ?>
 </body>
