@@ -24,7 +24,7 @@ if (!isset($_SESSION["id"])) {
             </tr>
             <?php
             require 'connection.php';
-            $query1 = mysqli_query($connect, "SELECT * FROM `users`");
+            $query1 = mysqli_query($connect, "SELECT * FROM `users` where id = " . $_SESSION["id"] . "");
             while ($users = mysqli_fetch_array($query1)) {
             ?>
                 <tr>
@@ -32,8 +32,13 @@ if (!isset($_SESSION["id"])) {
                     <td><?php echo $users["name"]; ?></td>
                     <td><?php echo $users["email"]; ?></td>
                     <td>
-                    <td><?php echo "<img width='100px' height='100px' src='uploads/{$users["image"]}' alt='Uploaded Image'>"; ?></td>
-
+                    <td><?php $imagePath = "uploads/" . $users["image"];
+                        if (file_exists($imagePath)) {
+                            echo "<img width='100px' height='100px' src='{$imagePath}' alt='Uploaded Image'>";
+                        } else {
+                            echo "Image not found.";
+                        } 
+                    ?>
                     </td>
 
                     <td>
