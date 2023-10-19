@@ -23,6 +23,7 @@
         <input type="email" name="email" id="email" value="<?php echo $users["email"]; ?>">
         <br>
         <input type="file" name="file" id="file" value="<?php echo $users["image"]; ?>">
+        <?php echo "<img width='100px' height='100px' src='uploads/{$users["image"]}' alt='Uploaded Image'>"; ?>
 
         <?php } ?>
         <button type="submit" name="btn_saved">Save</button>

@@ -16,7 +16,7 @@ if (isset($_POST["btn_saved"])) {
         // Generate a unique filename using the current date and time
         $newFilename = date("YmdHis") . "." . $extension;
         // print_r($newFilename);
-    $query = mysqli_query($connect, "INSERT INTO `users`( `name`, `email`, `password`, `image`, `created_at`) VALUES ('" . $_POST["name"] . "','" . $_POST["email"] . "','" . md5($_POST["password"]) . "','" . $newFilename . "',NOW())");
+    $query = mysqli_query($connect, "INSERT INTO `users`( `name`, `email`, `password`, `image`) VALUES ('" . $_POST["name"] . "','" . $_POST["email"] . "','" . md5($_POST["password"]) . "','" . $newFilename . "')");
     if ($query) {
         print_r($newFilename);
         $destinationPath = "uploads/" . $newFilename;
