@@ -52,9 +52,9 @@ if (isset($_POST['submit'])) {
             $_SESSION['name'] = $row['name'];
             $_SESSION['email'] = $row['email'];
             print_r($_SESSION);
-            // echo "<script>alert('Login Successful');</script>";
-            // // Redirect to the home page or another location
-            // echo "<script>window.location.assign('home.php')</script>";
+            echo "<script>alert('Login Successful');</script>";
+            // Redirect to the home page or another location
+            echo "<script>window.location.assign('home.php')</script>";
         } else {
             echo "<script>alert('Login Failed. User not found');</script>";
             echo "Email: " . $email . "<br>";

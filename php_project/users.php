@@ -15,6 +15,7 @@ if (!isset($_SESSION["id"])) {
     </head>
 
     <body>
+        <h1><?php echo $_SESSION["name"]; ?></h1>
         <table>
             <tr>
                 <td>id</td>
@@ -24,7 +25,7 @@ if (!isset($_SESSION["id"])) {
             </tr>
             <?php
             require 'connection.php';
-            $query1 = mysqli_query($connect, "SELECT * FROM `users` where id = " . $_SESSION["id"] . "");
+            $query1 = mysqli_query($connect, "SELECT * FROM `users`");
             while ($users = mysqli_fetch_array($query1)) {
             ?>
                 <tr>
@@ -52,7 +53,6 @@ if (!isset($_SESSION["id"])) {
             <a href="logout.php">logout</a>
         </table>
     </body>
-
     </html>
 
 <?php } ?>
