@@ -32,7 +32,7 @@ require "./templates/header.php";
 <?php
 require "./templates/footer.php";
 if(isset($_POST["submit"])){
-    $query = "INSERT INTO `users`(`name`, `email`, `password`) VALUES ('". $_POST["name"] ."','". $_POST["email"] ."','". $_POST["password"] ."')";
+    $query = "INSERT INTO `users`(`name`, `email`, `password`) VALUES ('". $_POST["name"] ."','". $_POST["email"] ."','". md5($_POST["password"]) ."')";
     $result = mysqli_query($con, $query);
     if($result){
         echo "inserted";
