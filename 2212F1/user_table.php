@@ -2,7 +2,7 @@
 require "connection.php";
 require "./templates/header.php";
 ?>
-
+<a href="user_insert.php" class="btn btn-success">create</a>
 <div class="table-responsive">
     <table class="table table-striped
     table-hover	
@@ -29,7 +29,7 @@ while($user=mysqli_fetch_array($result)){
                     <td><?php echo $user["email"]; ?></td>
                     <td>
                 <a href="" class="btn btn-warning">Edit</a>
-                <a href="" class="btn btn-danger">Delete</a>   
+                <a href="user_delete.php?id=<?php echo $user["id"]; ?>" class="btn btn-danger">Delete</a>   
                 </td>
                 </tr>
 

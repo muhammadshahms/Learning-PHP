@@ -35,7 +35,8 @@ if(isset($_POST["submit"])){
     $query = "INSERT INTO `users`(`name`, `email`, `password`) VALUES ('". $_POST["name"] ."','". $_POST["email"] ."','". md5($_POST["password"]) ."')";
     $result = mysqli_query($con, $query);
     if($result){
-        echo "inserted";
+        echo "<script>alert('inserted')</script>";
+        echo "<script>window.location.href='user_table.php'</script>";
     }
     else{
         echo "not inserted";
