@@ -2,8 +2,6 @@
 require 'connection.php';
 require "./templates/header.php";
 session_start();
-
-
 ?>
 <form action="" method="post" class="container-fluid">
     <div class="mb-3">
