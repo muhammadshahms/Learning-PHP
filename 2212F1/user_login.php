@@ -26,13 +26,12 @@ if (isset($_POST["btn_login"])) {
     $query = "select * from users where email = '" . $_POST["email"] . "' and password = '" . md5($_POST["password"]) . "'";
     $result = mysqli_query($con, $query);
     if (mysqli_num_rows($result) > 0) {
-       if($q = mysqli_fetch_array($result)) {
+        if ($q = mysqli_fetch_array($result)) {
             // $_SESSION["email"] = $q["email"];
             $_SESSION["id"] = $q["id"];
             // $_SESSION["name"] = $q["name"];   
-            echo "<script>window.location.assign('user_table.php')</script>";  
+            echo "<script>window.location.assign('user_table.php')</script>";
         }
-        
     } else {
         echo "<script>alert('Login Failed')</script>";
     }
