@@ -1,6 +1,11 @@
 <?php 
+session_start();
 require "connection.php";
 require "./templates/header.php";
+if(!isset($_SESSION["id"])) {
+    echo "<script>window.location.assign('user_login.php')</script>";
+}
+else{
 ?>
 <a href="user_insert.php" class="btn btn-success">create</a>
 <div class="table-responsive">
@@ -34,6 +39,7 @@ while($user=mysqli_fetch_array($result)){
                 </tr>
 
 <?php
+}
 }
 ?>
             </tbody>
