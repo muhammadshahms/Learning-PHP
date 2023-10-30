@@ -1,58 +1,52 @@
-<?php 
+<?php
 session_start();
 require "connection.php";
 require "./templates/header.php";
-if(!isset($_SESSION["id"])) {
+if (!isset($_SESSION["id"])) {
     echo "<script>window.location.assign('user_login.php')</script>";
-}
-else{
+} else {
 ?>
-<a href="user_insert.php" class="btn btn-success">create</a>
-<div class="table-responsive">
-    <table class="table table-striped
+    <a href="user_insert.php" class="btn btn-success">create</a>
+    <div class="table-responsive">
+        <table class="table table-striped
     table-hover	
     table-borderless
     table-primary
     align-middle">
-        <thead class="table-light">
+            <thead class="table-light">
 
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Action</th>
-            </tr>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
             </thead>
             <tbody class="table-group-divider">
 
-<?php 
-$query = "SELECT * FROM `users`";
-$result = mysqli_query($con, $query);
-while($user=mysqli_fetch_array($result)){
-?>
-                <tr class="table-primary" >
-                    <td><?php echo $user["name"]; ?></td>
-                    <td><?php echo $user["email"]; ?></td>
-                    <td>
-                <a href="" class="btn btn-warning">Edit</a>
-                <a href="user_delete.php?id=<?php echo $user["id"]; ?>" class="btn btn-danger">Delete</a>   
-                </td>
-                </tr>
+                <?php
+                $query = "SELECT * FROM `users`";
+                $result = mysqli_query($con, $query);
+                while ($user = mysqli_fetch_array($result)) {
+                ?>
+                    <tr class="table-primary">
+                        <td><?php echo $user["name"]; ?></td>
+                        <td><?php echo $user["email"]; ?></td>
+                        <td>
+                            <a href="user_edit.php?id=<?php echo $user["id"]; ?>" class="btn btn-warning">Edit</a>
+                            <a href="user_delete.php?id=<?php echo $user["id"]; ?>" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
 
-<?php
-}
-}
-?>
+            <?php
+                }
+            }
+            ?>
             </tbody>
-            <tfoot> 
+            <tfoot>
             </tfoot>
-    </table>
-</div>
+        </table>
+    </div>
 
-
-
-
-
-
-<?php 
-require "./templates/footer.php";
-?>
+    <?php
+    require "./templates/footer.php";
+    ?>
