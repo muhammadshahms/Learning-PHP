@@ -17,6 +17,7 @@ if (!isset($_SESSION["id"])) {
 
     <body>
         <h1><?php echo $_SESSION["name"]; ?></h1>
+        <a href="./profile.php">Profile</a>
         <table>
             <tr>
                 <td>id</td>
@@ -46,6 +47,7 @@ if (!isset($_SESSION["id"])) {
                     <td>
                         <a href="delete_user.php?id=<?php echo $users["id"] ?>">Delete</a>
                         <a href="edit_user.php?id=<?php echo $users["id"] ?>">edit</a>
+                        <a href="view.php?id=<?php echo $users["id"] ?>">view</a>
                     </td>
                 </tr>
             <?php
