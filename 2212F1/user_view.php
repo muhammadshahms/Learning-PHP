@@ -2,7 +2,7 @@
 require "connection.php";
 require "./templates/header.php";
 if (!isset($_GET["id"])) {
-    echo "<script>window.location.assign('user_table.php')</script>";
+    echo "<script>window.location.assign('admin_table.php')</script>";
 } else {
 ?>
 

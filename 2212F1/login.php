@@ -12,11 +12,17 @@ if (isset($_POST["btn_login"])) {
                     $_SESSION["id"] = $session["id"];
                     $_SESSION["name"] = $session["name"];
                     $_SESSION["role"] = $session["role"];
-                    header("Location: user_table.php");
+                    if ($_SESSION["role"] == "admin") {
+                        header("Location: admin_table.php");
+                        exit();
+                    }
+                    else {
+                        header("Location: user_table.php");
+                    }
                     exit();
                 }
             } else {
-                header("Location: user_login.php?error=Invalid login credentials");
+                header("Location: login.php?error=Invalid login credentials");
                 exit();
             }
         }
@@ -40,5 +46,6 @@ if (isset($_POST["btn_login"])) {
             <input type="password" class="form-control" name="password" id="" aria-describedby="helpId" placeholder="Enter your Password">
         </div>
         <input class="btn btn-success" type="submit" value="Login" name="btn_login">
+        <a href="register.php" class="d-flex flex-row justify-content-end text-decoration-none text-primary ">register now</a>
     </form>
 </div>

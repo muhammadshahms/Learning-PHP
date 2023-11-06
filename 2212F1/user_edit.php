@@ -1,7 +1,8 @@
 <?php
 require "connection.php";
 require "./templates/header.php";
-if (!isset($_GET["id"])) {
+session_start();
+if (!isset($_GET["id"]) && $_SESSION["role"] != "user" && isset($_SESSION["id"])) {
     echo "<script>window.location.assign('user_table.php')</script>";
 } else {
 ?>

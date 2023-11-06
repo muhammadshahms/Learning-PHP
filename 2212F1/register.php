@@ -37,11 +37,11 @@ include './templates/Bootstrap/cdn.php';
 
 <?php
 if (isset($_POST["submit"])) {
-    $query = "INSERT INTO `users`(`name`, `email`, `password`) VALUES ('" . $_POST["name"] . "','" . $_POST["email"] . "','" . md5($_POST["password"]) . "')";
+    $query = "INSERT INTO `users`(`role`,`name`, `email`, `password`) VALUES ('" . $_POST["role"] . "','" . $_POST["name"] . "','" . $_POST["email"] . "','" . md5($_POST["password"]) . "')";
     $result = mysqli_query($con, $query);
     if ($result) {
         echo "<script>alert('inserted')</script>";
-        echo "<script>window.location.href='user_table.php'</script>";
+        echo "<script>window.location.href='login.php'</script>";
     } else {
         echo "not inserted";
     }
