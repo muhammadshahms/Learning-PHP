@@ -1,9 +1,10 @@
 <?php 
+session_start();
 require "connection.php";
 if (!isset($_GET["id"])) {
-    echo "<script>window.location.assign('admin_table.php')</script>";
+    header("location:admin_table.php");
     if(!isset($_SESSION["id"])){
-        echo "<script>window.location.assign('login.php')</script>";
+        header("location:login.php");
     }
 }else{
 $query = "delete from users where id = '" .$_GET["id"]. "'";

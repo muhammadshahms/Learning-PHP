@@ -21,7 +21,7 @@ include 'bootstrap\cdn.php';
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="../logout.php">logout</a>
+                        <a class="dropdown-item" href="logout.php">logout</a>
                     </div>
                 </li>
             </ul>
