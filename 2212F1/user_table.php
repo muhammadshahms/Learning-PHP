@@ -6,13 +6,15 @@ if (!isset($_SESSION["id"])) {
     echo "<script>window.location.assign('user_login.php')</script>";
 } else {
 ?>
-
-    <a href="user_insert.php" class="btn btn-success">create</a>
-    <div class="table-responsive">
+<div class="p-3 d-flex flex-column mb-1 justify-content-center align-items-start">
+<a href="user_insert.php" class="btn btn-success">create</a>
+</div>
+    <div class="table-responsive p-3 mt-3 d-flex ">
+    
         <table class="table table-striped table-hover table-borderless table-primary align-middle">
             <thead class="table-light">
                 <tr>
-                    <th>Serial No.</th>
+                    <th>#</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Action</th>
@@ -26,6 +28,7 @@ if (!isset($_SESSION["id"])) {
                 $serialNo = 1;
 
                 while ($user = mysqli_fetch_array($result)) {
+                    
                 ?>
                     <tr class="table-primary">
                         <td><?php echo $serialNo; ?></td>
