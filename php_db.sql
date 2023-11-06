@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2023 at 03:42 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Nov 06, 2023 at 07:28 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,23 +29,24 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `role` enum('user','admin') NOT NULL,
   `name` varchar(225) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `image`, `created_at`, `updated_at`) VALUES
-(44, 'dsadsa', 'mu@shah.com', '202cb962ac59075b964b07152d234b70', '', '2023-10-05 10:31:47', '2023-10-05 13:39:02'),
-(46, 'dsad', 'mu@shah.comhf', '202cb962ac59075b964b07152d234b70', '20231005145520.jpg', '2023-10-05 12:55:20', '2023-10-05 13:39:02'),
-(47, 'Muhammad', 'mu@shah.comhhh', '202cb962ac59075b964b07152d234b70', '20231005145550.', '2023-10-05 12:55:50', '2023-10-05 13:39:02'),
-(48, 'dsadasdsa', 'mu@sadsadshah.com', '202cb962ac59075b964b07152d234b70', '20231005152615.jpg', '2023-10-05 13:26:15', '2023-10-05 13:39:02');
+INSERT INTO `users` (`id`, `role`, `name`, `email`, `password`, `image`, `updated_at`, `created_at`) VALUES
+(47, '', 'Muhammad', 'mu@shah.comdd', '202cb962ac59075b964b07152d234b70', '', '2023-11-06 06:08:38', '2023-11-06 11:08:38'),
+(48, '', 'dsadasdsa', 'mu@sadsadshah.com', '202cb962ac59075b964b07152d234b70', '20231005152615.jpg', '2023-11-06 06:08:38', '2023-11-06 11:08:38'),
+(49, '', 'salah Shakeel ', 'mu@ah.com', '202cb962ac59075b964b07152d234b70', '', '2023-11-06 06:08:38', '2023-11-06 11:08:38'),
+(50, '', 'dadsadsad', 'mu@shah.com', '202cb962ac59075b964b07152d234b70', '', '2023-11-06 06:08:38', '2023-11-06 11:08:38');
 
 --
 -- Indexes for dumped tables
@@ -66,7 +67,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

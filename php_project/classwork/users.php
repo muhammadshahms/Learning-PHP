@@ -23,7 +23,7 @@ include 'connection.php';
                 <td><?php echo $users["name"]; ?></td>
                 <td><?php echo $users["email"]; ?></td>
                 <td><a href="user_edit.php?id=<?php echo $users["id"]; ?>" class="btn btn-warning">Edit</a>
-                    <a href="" class="btn btn-danger">Delete</a>
+                    <a href="user_delete.php?id=<?php echo $users["id"]; ?>" class="btn btn-danger">Delete</a>
                 </td>
                 </tr>
             <?php } ?>
