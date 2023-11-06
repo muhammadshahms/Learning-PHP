@@ -1,25 +1,25 @@
 <?php
 require 'connection.php';
-require "./templates/header.php";
+include './templates/Bootstrap/cdn.php';
 session_start();
 ?>
-<form action="" method="post" class="container-fluid">
-    <div class="mb-3">
-        <label for="" class="form-label">Email</label>
-        <input type="text" class="form-control" name="email" id="email" aria-describedby="helpId" placeholder="Enter your email">
-        <small id="helpId" class="form-text text-muted">Help text</small>
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Password</label>
-        <input type="password" class="form-control" name="password" id="" aria-describedby="helpId" placeholder="Enter your Password">
-        <small id="helpId" class="form-text text-muted">Help text</small>
-    </div>
-    <input class="btn btn-success" type="submit" value="Login" name="btn_login">
-</form>
-
+<div 
+    class="container d-flex justify-content-center align-items-center" 
+    style="min-height: 100vh">
+    <form class="border shadow p-3 rounded" method="post" style="width: 450px;">
+        <div class="mb-3">
+            <label for="" class="form-label">Email</label>
+            <input type="text" class="form-control" name="email" id="email" aria-describedby="helpId" placeholder="Enter your email">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" id="" aria-describedby="helpId" placeholder="Enter your Password">
+        </div>
+        <input class="btn btn-success" type="submit" value="Login" name="btn_login">
+    </form>
+</div>
 <?php
 
-require "./templates/footer.php";
 if (isset($_POST["btn_login"])) {
     $query = "select * from users where email = '" . $_POST["email"] . "' and password = '" . md5($_POST["password"]) . "'";
     $result = mysqli_query($con, $query);
