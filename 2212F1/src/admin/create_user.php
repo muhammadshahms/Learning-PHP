@@ -1,6 +1,6 @@
 <?php
-require "connection.php";
-include './templates/header.php';
+require "../../config/connection.php";
+include '../../template/header.php';
 session_start();
 if (isset($_SESSION["id"]) && $_SESSION["role"] === "admin") {
     if (!isset($_GET["id"])) {
@@ -41,12 +41,12 @@ if (isset($_SESSION["id"]) && $_SESSION["role"] === "admin") {
     <?php
     }
 } else {
-    header("location:login.php");
+    header("location:../login.php");
     ?>
 
 
 <?php
-    include './templates/footer.php';
+    include '../../template/footer.php';
 }
 if (isset($_POST["submit"])) {
     $query = "INSERT INTO `users`(`role`,`name`, `email`, `password`) VALUES ('" . $_POST["role"] . "','" . $_POST["name"] . "','" . $_POST["email"] . "','" . md5($_POST["password"]) . "')";

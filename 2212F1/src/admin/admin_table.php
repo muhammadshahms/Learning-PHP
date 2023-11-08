@@ -1,7 +1,7 @@
 <?php
 session_start();
-require "connection.php";
-require "./templates/header.php";
+require "../../config/connection.php";
+require "../../template/header.php";
 if (isset($_SESSION["id"]) && $_SESSION["role"] === "admin") {
     if ($_SESSION["role"] !== "admin") {
         header("location:login.php");
@@ -39,9 +39,9 @@ if (isset($_SESSION["id"]) && $_SESSION["role"] === "admin") {
                             <td><?php echo $user["email"]; ?></td>
                             <td><?php echo $user["role"]; ?></td>
                             <td>
-                                <a href="user_view.php?id=<?php echo $user["id"]; ?>" class="btn btn-info">View</a>
-                                <a href="user_edit.php?id=<?php echo $user["id"]; ?>" class="btn btn-warning">Edit</a>
-                                <a href="user_delete.php?id=<?php echo $user["id"]; ?>" class="btn btn-danger">Delete</a>
+                                <a href="view_user.php?id=<?php echo $user["id"]; ?>" class="btn btn-info">View</a>
+                                <a href="edit_user.php?id=<?php echo $user["id"]; ?>" class="btn btn-warning">Edit</a>
+                                <a href="delete_user.php?id=<?php echo $user["id"]; ?>" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     <?php
@@ -56,10 +56,10 @@ if (isset($_SESSION["id"]) && $_SESSION["role"] === "admin") {
     <?php
     }
 } else {
-    header("location:login.php");
+    header("location:../login.php");
     ?>
 
 <?php
 }
-require "./templates/footer.php";
+require "../../template/footer.php";
 ?>

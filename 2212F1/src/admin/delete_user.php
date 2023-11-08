@@ -1,10 +1,10 @@
 <?php 
 session_start();
-require "connection.php";
+require "../../config/connection.php";
 if (!isset($_GET["id"])) {
     header("location:admin_table.php");
     if(!isset($_SESSION["id"])){
-        header("location:login.php");
+        header("location:../login.php");
     }
 }else{
 $query = "delete from users where id = '" .$_GET["id"]. "'";

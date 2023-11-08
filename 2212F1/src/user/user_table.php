@@ -1,10 +1,7 @@
 <?php
-session_start();
-require "connection.php";
-require "./templates/header.php";
-if (!isset($_SESSION["id"]) && $_SESSION["role"] != "user") {
-    header("location:login.php");
-} else {
+require "../../config/connection.php";
+require "../../template/header.php";
+require "../../middleware/user_auth_middleware.php";
 ?>
         <div class="table-responsive p-3 mt-3 d-flex ">
             <table class="table table-striped table-hover table-borderless table-primary align-middle">
@@ -46,6 +43,5 @@ if (!isset($_SESSION["id"]) && $_SESSION["role"] != "user") {
 
 
 <?php
-}
-require "./templates/footer.php";
+require "../../template/footer.php";
 ?>

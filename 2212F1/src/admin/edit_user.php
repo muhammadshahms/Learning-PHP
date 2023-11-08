@@ -1,9 +1,9 @@
 <?php
-require "connection.php";
-require "./templates/header.php";
-require "./middleware/auth_middleware.php";
+require "../../config/connection.php";
+require "../../template/header.php";
+// require "../../middleware/user_auth_middleware.php";
 if (!isset($_GET["id"])) {
-    header("location:user_table.php");
+    header("location:admin_table.php");
 } else {
 ?>
 
@@ -38,13 +38,13 @@ if (!isset($_GET["id"])) {
 
 <?php
 
-require "templates/footer.php";
+require "../../template/footer.php";
 if (isset($_POST["submit"])) {
     $edit_query = "UPDATE `users` SET `name`='" . $_POST["name"] . "',`email`='" . $_POST["email"] . "' WHERE id='" . $_GET["id"] . "'";
     $result = mysqli_query($con, $edit_query);
     if ($result) {
         echo "<script>alert('updated')</script>";
-        echo "<script>window.location.href='user_table.php'</script>";
+        echo "<script>window.location.href='admin_table.php'</script>";
     }
 }
 

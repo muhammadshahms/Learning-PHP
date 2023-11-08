@@ -1,6 +1,6 @@
 <?php
-require "connection.php";
-include './templates/Bootstrap/cdn.php';
+require "../config/connection.php";
+include "../template/bootstrap/cdn.php";
 ?>
 
 <div class="container d-flex flex-column mb-1 justify-content-center align-items-center" style="min-height: 100vh">

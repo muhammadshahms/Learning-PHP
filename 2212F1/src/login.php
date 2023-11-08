@@ -1,8 +1,7 @@
 <?php
-require 'connection.php';
-include './templates/Bootstrap/cdn.php';
+require '../config/connection.php';
+include '../template/bootstrap/cdn.php';
 session_start();
-
 if (isset($_POST["btn_login"])) {
             $query = "SELECT * FROM users WHERE email = '" . $_POST["email"] . "' AND password = '" . md5($_POST["password"]) . "'";
             $result = mysqli_query($con, $query);
@@ -13,11 +12,11 @@ if (isset($_POST["btn_login"])) {
                     $_SESSION["name"] = $session["name"];
                     $_SESSION["role"] = $session["role"];
                     if ($_SESSION["role"] == "admin") {
-                        header("Location: admin_table.php");
+                        header("Location: admin/admin_table.php");
                         exit();
                     }
                     else {
-                        header("Location: user_table.php");
+                        header("Location: user/user_table.php");
                     }
                     exit();
                 }

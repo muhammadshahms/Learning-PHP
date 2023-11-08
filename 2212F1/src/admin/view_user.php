@@ -1,8 +1,9 @@
 <?php
-require "connection.php";
-require "./templates/header.php";
+require "../../config/connection.php";
+require "../../template/header.php";
+// require "../../middleware/user_auth_middleware.php";
 if (!isset($_GET["id"])) {
-    echo "<script>window.location.assign('admin_table.php')</script>";
+    header("location:user_table.php");
 } else {
 ?>
 
@@ -32,4 +33,5 @@ if (!isset($_GET["id"])) {
 
 <?php
 }
+require "../../template/footer.php";
 ?>
