@@ -1,6 +1,6 @@
 <?php
 session_start();
-function userAuthMiddleware() {
+function userMiddlewareAuth() {
     // Check if the user is not logged in or the role is not 'user'
     if (!isset($_SESSION["id"]) || $_SESSION["role"] !== "user") {
         header("Location: login.php");
@@ -8,5 +8,10 @@ function userAuthMiddleware() {
     }
 }
 
-// Call this function wherever you want to perform the authentication check
-userAuthMiddleware();
+function adminMiddlewareAuth() {
+    if (!(isset($_SESSION["id"]) && $_SESSION["role"] === "admin")) {
+        header("Location: ../login.php");
+        exit();
+    }
+}
+

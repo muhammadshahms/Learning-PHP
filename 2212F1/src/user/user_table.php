@@ -1,7 +1,8 @@
 <?php
 require "../../config/connection.php";
 require "../../template/header.php";
-require "../../middleware/user_auth_middleware.php";
+require "../../middleware/auth_middleware.php";
+userMiddlewareAuth();
 ?>
         <div class="table-responsive p-3 mt-3 d-flex ">
             <table class="table table-striped table-hover table-borderless table-primary align-middle">

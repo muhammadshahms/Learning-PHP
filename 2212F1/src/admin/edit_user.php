@@ -1,7 +1,8 @@
 <?php
 require "../../config/connection.php";
 require "../../template/header.php";
-// require "../../middleware/user_auth_middleware.php";
+require "../../middleware/auth_middleware.php";
+adminMiddlewareAuth();
 if (!isset($_GET["id"])) {
     header("location:admin_table.php");
 } else {
