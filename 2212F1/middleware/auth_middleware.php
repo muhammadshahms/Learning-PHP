@@ -2,7 +2,7 @@
 session_start();
 function userMiddlewareAuth() {
     if (!(isset($_SESSION["id"]) || $_SESSION["role"] === "user")) {
-        header("Location: login.php");
+        header("Location: ../login.php");
         exit();
     }
 }
