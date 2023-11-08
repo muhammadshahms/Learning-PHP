@@ -1,9 +1,9 @@
 <?php
 require "connection.php";
 require "./templates/header.php";
-session_start();
-if (!isset($_GET["id"]) && $_SESSION["role"] != "user" && isset($_SESSION["id"])) {
-    echo "<script>window.location.assign('user_table.php')</script>";
+require "./middleware/auth_middleware.php";
+if (!isset($_GET["id"])) {
+    header("location:user_table.php");
 } else {
 ?>
 
