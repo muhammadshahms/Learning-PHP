@@ -25,8 +25,6 @@ if (isset($_POST["btn_login"])) {
                 exit();
             }
         }
-    
-
 ?>
 <div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh">
     <h1 class="display-3">Login</h1>

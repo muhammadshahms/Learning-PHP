@@ -5,7 +5,9 @@ include "../template/bootstrap/cdn.php";
 
 <div class="container d-flex flex-column mb-1 justify-content-center align-items-center" style="min-height: 100vh">
     <h1 class="display-3">Register</h1>
+
 <form method="POST" style="width: 450px;" class="border shadow p-3 rounded">
+
         <div class="container">
             <div class="mb-3">
                 <label for="" class="form-label">Name</label>
