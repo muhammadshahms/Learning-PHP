@@ -1,5 +1,4 @@
 <?php
-session_start();
 require "../../config/connection.php";
 require "../../template/header.php";
 require "../../middleware/auth_middleware.php";

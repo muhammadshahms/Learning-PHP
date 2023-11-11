@@ -1,6 +1,6 @@
 <?php 
-session_start();
 require "../../middleware/auth_middleware.php";
+require "../../config/connection.php";
 adminMiddlewareAuth();
 if (!isset($_GET["id"])) {
     header("location:admin_table.php");
