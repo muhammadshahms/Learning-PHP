@@ -13,12 +13,13 @@ try {
     if (!$con) {
         throw new Exception("Connection failed: " . mysqli_connect_error());
     }
+    
+    // Perform database operations here
 
-    // Your database operations go here
 
 } catch (Exception $e) {
     // Handle the exception
-    echo "Database Error: " . $e->getMessage();
+    echo "MYSQL Error: " . $e->getMessage();
 }
 
 ?>
