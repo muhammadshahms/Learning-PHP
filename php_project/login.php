@@ -11,7 +11,7 @@ session_start();
 <body>
 
 <form method="post">
-
+    
     <label for="email">email</label>
     <input type="email" name="email">
     <label for="password">password</label>
@@ -36,6 +36,8 @@ if (isset($_POST["btn_saved"])) {
         }
     }
 }
+
+require 'middleware.php';
 
 ?>
 </html>
