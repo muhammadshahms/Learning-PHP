@@ -1,21 +1,20 @@
 <?php
 
-class Fruits {
+class Fruits
+{
     public $name;
     public $color;
 
-    public function __construct($name, $color) {
-        $this->name = $name;
-        $this->color = $color;
-    }
+public function get_name(){
+    return $this->name;
+}
 
-    public function intro() {
-        echo "The fruit is {$this->name} and the color is {$this->color}.";
-    }
-
+public function set_name($name){
+    $this->name = $name; 
+}
 
 }
 
-$b = new Fruits("Apple", "red");
-
-$b->intro();
+$fruits = new Fruits();
+$fruits->set_name("Apple");
+echo $fruits->get_name();
